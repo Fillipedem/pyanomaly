@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Stats
+      title: stats
       url: /stats
     output: web
     title: pyanomaly
