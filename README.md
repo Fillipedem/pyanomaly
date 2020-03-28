@@ -1,4 +1,13 @@
-# nbdev template
+# Pyanomaly
+> Módulo para detecção de anomalias.
 
-Use this template to more easily create your nbdev project.
 
+This file will become your README and also the index of your documentation.
+
+## Install
+
+`pip install pyanomaly`
+
+## How to use
+
+#Todo
