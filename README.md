@@ -1,10 +1,10 @@
 # Pyanomaly
-> Módulo para detecção de anomalias.
+> Móodulo para detecção de anomalias.
 
 
 ###TODO
 
-## Instalação
+## Install
 
 ####TODO `pip install pyanomaly`
 
@@ -79,6 +79,8 @@ df.plot(figsize=(8, 4));
 
 ![png](docs/images/output_7_0.png)
 
+
+**Zscore Robusto**
 
 ```python
 mad = MAD()
@@ -155,8 +157,10 @@ plt.title('Zscore Robusto', fontsize='large');
 ```
 
 
-![png](docs/images/output_9_0.png)
+![png](docs/images/output_10_0.png)
 
+
+**Tukey**
 
 ```python
 tu = Tukey()
@@ -233,5 +237,5 @@ plt.title('Tukey Method', fontsize='large');
 ```
 
 
-![png](docs/images/output_11_0.png)
+![png](docs/images/output_13_0.png)
 
