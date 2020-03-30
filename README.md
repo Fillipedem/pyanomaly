@@ -28,7 +28,6 @@ url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/daily-min-tem
 s = requests.get(url).content
 df = pd.read_csv(io.StringIO(s.decode('utf-8')), parse_dates=['Date'])
 df.set_index('Date', inplace=True)
-adas
 ```
 
 
