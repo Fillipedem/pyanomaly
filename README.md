@@ -15,7 +15,6 @@ Iremos realizar os testes no dataset contendo temperaturas diarias da cidade de 
 dataset: https://raw.githubusercontent.com/jbrownlee/Datasets/master/daily-min-temperatures.csv
 
 ```python
-#export
 import numpy as np
 import pandas as pd
 # plot
@@ -47,7 +46,6 @@ adas
 
 
 ```python
-#export
 df.head(5).T
 ```
 
@@ -104,7 +102,6 @@ df.plot(figsize=(8, 4));
 
 
 ```python
-#export
 mad = MAD()
 mad.fit(df['Temp'])
 y = mad.predict(df['Temp'])
@@ -169,7 +166,6 @@ outliers.head()
 
 
 ```python
-#export
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
                        
 sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
@@ -184,7 +180,6 @@ plt.title('Zscore Robusto', fontsize='large');
 
 
 ```python
-#export
 tu = Tukey()
 tu.fit(df['Temp'])
 y = tu.predict(df['Temp'])
@@ -249,7 +244,6 @@ outliers.head()
 
 
 ```python
-#export
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
                        
 sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
