@@ -20,13 +20,8 @@ import pandas as pd
 # plot
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
-# load dataset
-import io
-import requests
 
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/daily-min-temperatures.csv"
-s = requests.get(url).content
-df = pd.read_csv(io.StringIO(s.decode('utf-8')), parse_dates=['Date'])
+df = pd.read_csv('./dados/daily-min-temperatures.csv', parse_dates=['Date'])
 df.set_index('Date', inplace=True)
 ```
 
@@ -78,7 +73,6 @@ df.head(5).T
 
 
 ```python
-#export
 df.plot(figsize=(8, 4));
 ```
 
