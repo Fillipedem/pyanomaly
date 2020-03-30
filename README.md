@@ -30,20 +30,6 @@ df = pd.read_csv(io.StringIO(s.decode('utf-8')), parse_dates=['Date'])
 df.set_index('Date', inplace=True)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-12-2d7c2a5b300c> in <module>
-         13 df = pd.read_csv(io.StringIO(s.decode('utf-8')), parse_dates=['Date'])
-         14 df.set_index('Date', inplace=True)
-    ---> 15 adas
-    
-
-    NameError: name 'adas' is not defined
-
-
 ```python
 df.head(5).T
 ```
