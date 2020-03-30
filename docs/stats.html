@@ -5,8 +5,8 @@ title: stats
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "M√≥dulo que cont√©m os algoritmos para detec√ß√£o de anomalias em dados univariados."
-description: "M√≥dulo que cont√©m os algoritmos para detec√ß√£o de anomalias em dados univariados."
+summary: "MÛdulo que contÈm os algoritmos para detecÁ„o de anomalias em dados univariados."
+description: "MÛdulo que contÈm os algoritmos para detecÁ„o de anomalias em dados univariados."
 ---
 <!--
 
@@ -42,7 +42,7 @@ description: "M√≥dulo que cont√©m os algoritmos para detec√ß√£o de anomalias em 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Robust-Zscore">Robust Zscore<a class="anchor-link" href="#Robust-Zscore"> </a></h2><p>Para detec√ß√£o de anomalias o Zscore Robusto √© mais adequado que o Zscore padr√£o, uma vez que a m√©dia pode ser fortemente influenciada por outliers.</p>
+<h2 id="Robust-Zscore">Robust Zscore<a class="anchor-link" href="#Robust-Zscore"> </a></h2><p>Para detecÁ„o de anomalias o Zscore Robusto È mais adequado que o Zscore padr„o, uma vez que a mÈdia pode ser fortemente influenciada por outliers.</p>
 
 </div>
 </div>
@@ -68,7 +68,7 @@ description: "M√≥dulo que cont√©m os algoritmos para detec√ß√£o de anomalias em 
 <h2 id="MAD" class="doc_header"><code>class</code> <code>MAD</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L9" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MAD</code>()</p>
 </blockquote>
 <p>classe responsavel por implemetar zscore robusto
-para detec√ß√£o de anomalias.</p>
+para detecÁ„o de anomalias.</p>
 
 </div>
 
@@ -91,7 +91,7 @@ para detec√ß√£o de anomalias.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="MAD.fit" class="doc_header"><code>MAD.fit</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MAD.fit</code>(<strong><code>x</code></strong>)</p>
+<h4 id="MAD.fit" class="doc_header"><code>MAD.fit</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L21" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MAD.fit</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
 <p>Calcula os parametros do Zscore Robusto(Median/MAD) para os valores de <strong>x</strong></p>
 
@@ -116,9 +116,9 @@ para detec√ß√£o de anomalias.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="MAD.predict" class="doc_header"><code>MAD.predict</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MAD.predict</code>(<strong><code>x</code></strong>)</p>
+<h4 id="MAD.predict" class="doc_header"><code>MAD.predict</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MAD.predict</code>(<strong><code>x</code></strong>, <strong><code>m</code></strong>=<em><code>3</code></em>)</p>
 </blockquote>
-<p>retorna o MAD(Median Absolute Deviation) para cada valor de <strong>x</strong></p>
+<p>retorna se os valores de <strong>x</strong> s„o outliers</p>
 
 </div>
 
@@ -154,10 +154,10 @@ para detec√ß√£o de anomalias.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Tukey" class="doc_header"><code>class</code> <code>Tukey</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L28" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Tukey</code>()</p>
+<h2 id="Tukey" class="doc_header"><code>class</code> <code>Tukey</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L33" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Tukey</code>()</p>
 </blockquote>
 <p>classe responsavel por implemetar Tukey Method
-para detec√ß√£o de anomalias.</p>
+para detecÁ„o de anomalias.</p>
 
 </div>
 
@@ -180,7 +180,7 @@ para detec√ß√£o de anomalias.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Tukey.fit" class="doc_header"><code>Tukey.fit</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Tukey.fit</code>(<strong><code>x</code></strong>)</p>
+<h4 id="Tukey.fit" class="doc_header"><code>Tukey.fit</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Tukey.fit</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
 <p>Calcula os parametros do Tukey(Q1,Q2,Q3) para os valores de <strong>x</strong></p>
 
@@ -205,9 +205,74 @@ para detec√ß√£o de anomalias.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Tukey.predict" class="doc_header"><code>Tukey.predict</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Tukey.predict</code>(<strong><code>x</code></strong>)</p>
+<h4 id="Tukey.predict" class="doc_header"><code>Tukey.predict</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L59" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Tukey.predict</code>(<strong><code>x</code></strong>)</p>
 </blockquote>
-<p>retorna se os valores de <strong>x</strong> s√£o outliers</p>
+<p>retorna se os valores de <strong>x</strong> s„o outliers</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Fun&#231;&#245;es-de-ajuda">Fun&#231;&#245;es de ajuda<a class="anchor-link" href="#Fun&#231;&#245;es-de-ajuda"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="window" class="doc_header"><code>window</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L73" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>window</code>(<strong><code>m</code></strong>, <strong><code>x</code></strong>)</p>
+</blockquote>
+<p>calcula a probabilidade do intervalo ser um outlier
+com base na soma das mediÁıes individuas</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="window" class="doc_header"><code>window</code><a href="https://github.com/fillipedem/pyanomaly/tree/master/pyanomaly/stats.py#L73" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>window</code>(<strong><code>m</code></strong>, <strong><code>x</code></strong>)</p>
+</blockquote>
+<p>calcula a probabilidade do intervalo ser um outlier
+com base na soma das mediÁıes individuas</p>
 
 </div>
 
