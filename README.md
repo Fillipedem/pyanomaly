@@ -1,5 +1,5 @@
-# Pyanomaly
-> Móodulo para detecção de anomalias.
+# pyanomaly
+> Conjunto de algoritmos para detectar anomalias em Series Temporais.
 
 
 ###TODO
