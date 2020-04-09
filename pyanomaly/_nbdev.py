@@ -4,9 +4,13 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"MAD": "00_stats.ipynb",
          "Tukey": "00_stats.ipynb",
-         "window": "00_stats.ipynb"}
+         "window": "00_stats.ipynb",
+         "factory_atype": "01_timeseries.ipynb",
+         "anomaly_ma": "01_timeseries.ipynb",
+         "twitter": "01_timeseries.ipynb"}
 
-modules = ["stats.py"]
+modules = ["stats.py",
+           "timeseries.py"]
 
 doc_url = "https://fillipedem.github.io/pyanomaly/"
 

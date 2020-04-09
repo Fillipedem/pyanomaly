@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: stats
       url: /stats
+    - output: web,pdf
+      title: timeseries
+      url: /timeseries
     output: web
     title: pyanomaly
   output: web

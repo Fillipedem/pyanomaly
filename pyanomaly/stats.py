@@ -23,11 +23,16 @@ class MAD():
         self.mad = np.nanmedian(np.abs(x - np.nanmedian(x)))
         self.median = np.nanmedian(x)
 
-    def predict(self, x, m=3):
+    def predict(self, x, m=3.0):
         ''' retorna se os valores de **x** são outliers '''
         mad = self._mad(x)
-        y_pred = (np.abs(mad) > m).astype('int')
-        return y_pred
+        return x[np.abs(mad) > m]
+
+    def fit_predict(self, x, m=3.0):
+        ''' Calcula os parametros e retorno os valores
+            de **x** que são outliers'''
+        self.fit(x)
+        return self.predict(x, m)
 
 # Cell
 class Tukey():
@@ -58,10 +63,13 @@ class Tukey():
 
     def predict(self, x):
         ''' retorna se os valores de **x** são outliers '''
-        y = x.copy()
-        y[:] = 0                                # normal
-        y[(x < self.min) | (x >= self.max)] = 1 # anomaly
-        return  y
+        return x[(x < self.min) | (x >= self.max)]
+
+    def fit_predict(self, x):
+        ''' Calcula os parametros e retorno os valores
+            de **x** que são outliers'''
+        self.fit(x)
+        return self.predict(x)
 
 # Cell
 def window(m, x):
