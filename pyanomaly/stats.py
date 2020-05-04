@@ -70,6 +70,15 @@ class Tukey():
         ''' retorna se os valores de **x** são outliers '''
         return x[(x < self.min) | (x >= self.max)]
 
+
+    def decision_function(self, x):
+        ''' retorna o score para os valores de **x** '''
+        score = np.zeros(len(x))
+        score[x < self.min] = np.abs(x[x < self.min] - self.min)
+        score[x > self.max] = np.abs(x[x > self.max] - self.max)
+
+        return np.log(score)
+
     def fit_predict(self, x):
         ''' Calcula os parametros e retorno os valores
             de **x** que são outliers'''
