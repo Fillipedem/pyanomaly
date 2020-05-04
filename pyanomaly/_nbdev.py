@@ -6,8 +6,10 @@ index = {"MAD": "00_stats.ipynb",
          "Tukey": "00_stats.ipynb",
          "window": "00_stats.ipynb",
          "factory_atype": "01_timeseries.ipynb",
-         "anomaly_ma": "01_timeseries.ipynb",
-         "twitter": "01_timeseries.ipynb"}
+         "moving_average": "01_timeseries.ipynb",
+         "moving_average_score": "01_timeseries.ipynb",
+         "twitter": "01_timeseries.ipynb",
+         "twitter_score": "01_timeseries.ipynb"}
 
 modules = ["stats.py",
            "timeseries.py"]

@@ -28,6 +28,11 @@ class MAD():
         mad = self._mad(x)
         return x[np.abs(mad) > m]
 
+    def decision_function(self, x):
+        ''' retorna se os valores de mad para cada valor em **x**'''
+        mad = self._mad(x)
+        return np.abs(mad)
+
     def fit_predict(self, x, m=3.0):
         ''' Calcula os parametros e retorno os valores
             de **x** que são outliers'''
