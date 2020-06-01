@@ -14,7 +14,7 @@ class MAD():
     def __init__(self):
         pass
 
-    def _mad(self, x):
+    def __mad(self, x):
         ''' retorna o MAD(Median Absolute Deviation) para cada valor de **x** '''
         return (0.6745*(x - self.median))/self.mad
 
@@ -25,12 +25,12 @@ class MAD():
 
     def predict(self, x, m=3.0):
         ''' retorna se os valores de **x** são outliers '''
-        mad = self._mad(x)
+        mad = self.__mad(x)
         return x[np.abs(mad) > m]
 
     def decision_function(self, x):
         ''' retorna se os valores de mad para cada valor em **x**'''
-        mad = self._mad(x)
+        mad = self.__mad(x)
         return np.abs(mad)
 
     def fit_predict(self, x, m=3.0):
@@ -77,7 +77,7 @@ class Tukey():
         score[x < self.min] = np.abs(x[x < self.min] - self.min)
         score[x > self.max] = np.abs(x[x > self.max] - self.max)
 
-        return np.log(score)
+        return np.log(score + 1)
 
     def fit_predict(self, x):
         ''' Calcula os parametros e retorno os valores

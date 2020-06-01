@@ -44,15 +44,15 @@ def moving_average_score(ts, window=12,  atype='mad'):
 # Cell
 from statsmodels.tsa.seasonal import STL
 
-def twitter(x, period=None):
+def twitter(x, period=None, seasonal=45):
     '''
         Retorna os index dos valores que são anomalias
-        input precisa ser um Serie com index temporal'''
+        input precisa ser um Serie com DateTimeIndex'''
     # filtrando o componente seasonal
     if period is not None:
-        stl = STL(x, period=period)
+        stl = STL(x, period=period, seasonal=seasonal)
     else:
-        stl = STL(x)
+        stl = STL(x, seasonal=seasonal)
 
     res = stl.fit()
     # calculamos o residuo
@@ -66,15 +66,15 @@ def twitter(x, period=None):
 # Cell
 from statsmodels.tsa.seasonal import STL
 
-def twitter_score(x, period=None):
+def twitter_score(x, period=None, seasonal=45):
     '''
         Retorna os index dos valores que são anomalias
         input precisa ser um Serie com index temporal'''
     # filtrando o componente seasonal
     if period is not None:
-        stl = STL(x, period=period)
+        stl = STL(x, period=period, seasonal=seasonal)
     else:
-        stl = STL(x)
+        stl = STL(x, seasonal=seasonal)
     res = stl.fit()
     # calculamos o residuo
     residuo = x - np.nanmedian(x) - res.seasonal
