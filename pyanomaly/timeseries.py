@@ -44,7 +44,7 @@ def moving_average_score(ts, window=12,  atype='mad'):
 # Cell
 from statsmodels.tsa.seasonal import STL
 
-def twitter(x, period=None, seasonal=45):
+def twitter(x, m=3.0, period=None, seasonal=45, only_low_values=False):
     '''
         Retorna os index dos valores que são anomalias
         input precisa ser um Serie com DateTimeIndex'''
@@ -58,15 +58,15 @@ def twitter(x, period=None, seasonal=45):
     # calculamos o residuo
     residuo = x - np.nanmedian(x) - res.seasonal
     # Procuramos outliers com MAD
-    mad = MAD()
+    mad = MAD(only_low_values=only_low_values)
     mad.fit(residuo)
-    index = mad.predict(residuo).index
+    index = mad.predict(residuo, m=m).index
     return x.loc[index]
 
 # Cell
 from statsmodels.tsa.seasonal import STL
 
-def twitter_score(x, period=None, seasonal=45):
+def twitter_score(x, m=3.0, period=None, seasonal=45):
     '''
         Retorna os index dos valores que são anomalias
         input precisa ser um Serie com index temporal'''
@@ -80,5 +80,5 @@ def twitter_score(x, period=None, seasonal=45):
     residuo = x - np.nanmedian(x) - res.seasonal
     # Procuramos outliers com MAD
     mad = MAD()
-    mad.fit(residuo)
+    mad.fit(residuo, m=m)
     return mad.decision_function(residuo)

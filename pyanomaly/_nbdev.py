@@ -4,19 +4,14 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"MAD": "00_stats.ipynb",
          "Tukey": "00_stats.ipynb",
-         "window": "00_stats.ipynb",
          "factory_atype": "01_timeseries.ipynb",
          "moving_average": "01_timeseries.ipynb",
          "moving_average_score": "01_timeseries.ipynb",
          "twitter": "01_timeseries.ipynb",
-         "twitter_score": "01_timeseries.ipynb",
-         "auto_arima": "02_forecast.ipynb",
-         "check_interval": "02_forecast.ipynb",
-         "arima_anomalies": "02_forecast.ipynb"}
+         "twitter_score": "01_timeseries.ipynb"}
 
 modules = ["stats.py",
-           "timeseries.py",
-           "forecast.py"]
+           "timeseries.py"]
 
 doc_url = "https://fillipedem.github.io/pyanomaly/"
 
