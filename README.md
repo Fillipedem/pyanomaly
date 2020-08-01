@@ -25,50 +25,11 @@ df.set_index('Date', inplace=True)
 ```
 
 ```python
-df.head(5).T
+print(df.head(5).T)
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>1981-01-01</th>
-      <th>1981-01-02</th>
-      <th>1981-01-03</th>
-      <th>1981-01-04</th>
-      <th>1981-01-05</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Temp</th>
-      <td>20.7</td>
-      <td>17.9</td>
-      <td>18.8</td>
-      <td>14.6</td>
-      <td>15.8</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+    Date  1981-01-01  1981-01-02  1981-01-03  1981-01-04  1981-01-05
+    Temp        20.7        17.9        18.8        14.6        15.8
 
 
 ```python

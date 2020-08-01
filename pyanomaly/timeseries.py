@@ -6,7 +6,7 @@ __all__ = ['factory_atype', 'moving_average', 'moving_average_score', 'twitter',
 import numpy as np
 import pandas as pd
 
-from .stats import MAD, Tukey #, ESD
+from .stats import MAD, Tukey
 
 # Cell
 def factory_atype(atype='mad'):
