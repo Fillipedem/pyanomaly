@@ -11,11 +11,13 @@ index = {"MAD": "00_stats.ipynb",
          "twitter_score": "01_timeseries.ipynb",
          "anomaly_arima": "02_forecast.ipynb",
          "check_int": "02_forecast.ipynb",
-         "anomaly_holtwinters": "02_forecast.ipynb"}
+         "anomaly_holtwinters": "02_forecast.ipynb",
+         "plot_anomalies": "03_utils.ipynb"}
 
 modules = ["stats.py",
            "timeseries.py",
-           "forecast.py"]
+           "forecast.py",
+           "utils.py"]
 
 doc_url = "https://fillipedem.github.io/pyanomaly/"
 

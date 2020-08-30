@@ -8,6 +8,8 @@ import pandas as pd
 
 # pyanomaly
 from .stats import MAD, Tukey
+from .utils import plot_anomalies
+
 # Auto-Arima
 import pmdarima as pm
 # Holt-Winters

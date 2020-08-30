@@ -17,11 +17,11 @@ class MAD():
 
     def __mad(self, x):
         ''' retorna o MAD(Median Absolute Deviation) para cada valor de **x** '''
-        return (0.6745*(x - self.median))/self.mad
+        return (x - self.median)/self.mad
 
     def fit(self, x):
         ''' Calcula os parametros do Zscore Robusto(Median/MAD) para os valores de **x** '''
-        self.mad = np.nanmedian(np.abs(x - np.nanmedian(x)))
+        self.mad = 1.4826*np.nanmedian(np.abs(x - np.nanmedian(x)))
         self.median = np.nanmedian(x)
 
     def predict(self, x, m=3.0):

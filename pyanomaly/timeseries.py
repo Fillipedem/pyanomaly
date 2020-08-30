@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 
 from .stats import MAD, Tukey
+from .utils import plot_anomalies
 
 # Cell
 def factory_atype(atype='mad'):
