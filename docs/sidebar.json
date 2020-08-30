@@ -2,6 +2,8 @@
   "pyanomaly": {
     "Overview": "/",
     "stats": "/stats",
-    "timeseries": "/timeseries"
+    "timeseries": "/timeseries",
+    "forecast": "/forecast",
+    "utils": "/utils"
   }
 }
