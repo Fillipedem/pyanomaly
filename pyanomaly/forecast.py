@@ -6,6 +6,8 @@ __all__ = ['anomaly_arima', 'check_int', 'anomaly_holtwinters']
 import numpy as np
 import pandas as pd
 
+# pyanomaly
+from .stats import MAD, Tukey
 # Auto-Arima
 import pmdarima as pm
 # Holt-Winters
@@ -96,9 +98,10 @@ def check_int(y, conf_interval, only_lower=False):
         return np.bitwise_and(lower, upper)
 
 # Cell
-
-def anomaly_holtwinters(ts, seasonal=None, seasonal_periods=7):
+def anomaly_holtwinters(ts, seasonal, seasonal_periods):
     '''
+    Predict anomaly with one stepm ahead forecast.
+
     Input:
         # Serie Temporal
         ts: Serie Temporal pd.Series() com DateTimeIndex
@@ -109,4 +112,11 @@ def anomaly_holtwinters(ts, seasonal=None, seasonal_periods=7):
     '''
     model = ExponentialSmoothing(ts, seasonal=seasonal,
                                  seasonal_periods=seasonal_periods)
-    res = model.fit(ts)
+    res = model.fit(use_boxcox=True)
+    y_pred = res.fittedvalues
+
+    # search anomalies with mad
+    tu = Tukey()
+    anomalias = tu.fit_predict(ts - y_pred)
+
+    return ts[anomalias.index]
