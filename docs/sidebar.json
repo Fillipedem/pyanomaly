@@ -3,7 +3,6 @@
     "Overview": "/",
     "stats": "/stats",
     "timeseries": "/timeseries",
-    "forecast": "/forecast",
-    "utils": "/utils"
+    "forecast": "/forecast"
   }
 }

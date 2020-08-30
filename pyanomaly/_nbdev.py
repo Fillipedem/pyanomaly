@@ -15,8 +15,7 @@ index = {"MAD": "00_stats.ipynb",
 
 modules = ["stats.py",
            "timeseries.py",
-           "forecast.py",
-           "utils.py"]
+           "forecast.py"]
 
 doc_url = "https://fillipedem.github.io/pyanomaly/"
 
