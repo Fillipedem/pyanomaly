@@ -112,13 +112,25 @@ def anomaly_holtwinters(ts, seasonal, seasonal_periods):
         seasonal: 'add', 'mul', None
         seasonal_periods: Inteiro indicando o periodo da serie temporal
     '''
+    # Preprocessamento
+    # HoltWinters com use_boxcox=True requer que todos os valores sejam positivos (X>0)
+    min_val = ts.min()
+    if min_val <= 0:
+        ts = (ts - min_val) + 1
+
+    # Train model
     model = ExponentialSmoothing(ts, seasonal=seasonal,
                                  seasonal_periods=seasonal_periods)
     res = model.fit(use_boxcox=True)
     y_pred = res.fittedvalues
 
-    # search anomalies with mad
-    tu = Tukey()
-    anomalias = tu.fit_predict(ts - y_pred)
+    # Procurando anomalias no residuo
+    # Utilizando MAD com sigma 3(99.7% considerando a prob normal)
+    mad = MAD()
+    anomalias = mad.fit_predict(ts - y_pred)
+
+    # Posprocessamento, desfazendo alterações nos valores da equação
+    if min_val <= 0:
+        ts = (ts + min_val) - 1
 
     return ts[anomalias.index]
