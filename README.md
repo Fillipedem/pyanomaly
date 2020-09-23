@@ -12,7 +12,7 @@ Iremos realizar os testes no dataset contendo temperaturas diarias da cidade de 
 
 dataset: https://raw.githubusercontent.com/jbrownlee/Datasets/master/daily-min-temperatures.csv
 
-```python
+```
 # data
 import numpy as np
 import pandas as pd
@@ -24,7 +24,7 @@ df = pd.read_csv('./dados/daily-min-temperatures.csv', parse_dates=['Date'])
 df.set_index('Date', inplace=True)
 ```
 
-```python
+```
 print(df.head(5).T)
 ```
 
@@ -32,7 +32,7 @@ print(df.head(5).T)
     Temp        20.7        17.9        18.8        14.6        15.8
 
 
-```python
+```
 df.plot(figsize=(8, 4));
 ```
 
@@ -42,7 +42,7 @@ df.plot(figsize=(8, 4));
 
 ## Mad
 
-```python
+```
 mad = MAD()
 mad.fit(df['Temp'])
 outliers = mad.fit_predict(df['Temp'])
@@ -63,7 +63,7 @@ outliers.head()
 
 
 
-```python
+```
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
                        
 sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
@@ -79,7 +79,7 @@ plt.title('Zscore Robusto', fontsize='large');
 
 ## Tukey
 
-```python
+```
 tu = Tukey()
 
 tu.fit(df['Temp'])
@@ -101,7 +101,7 @@ outliers.head()
 
 
 
-```python
+```
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
                        
 sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
@@ -117,7 +117,7 @@ plt.title('Tukey Method', fontsize='large');
 
 ## Twitter - S-MAD
 
-```python
+```
 outliers = twitter(df['Temp'], period=12)
 outliers.head()
 ```
@@ -135,7 +135,7 @@ outliers.head()
 
 
 
-```python
+```
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
                        
 sns.lineplot(x=df.index, y=df['Temp'], ax=ax)

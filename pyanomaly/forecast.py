@@ -59,6 +59,7 @@ def anomaly_arima(ts, train_split=0.4, d=None,
     model = pm.auto_arima(ts[:start], seasonal=seasonal, d=d,
                           m=seasonal_periods, suppress_warnings=True)
 
+    # Updates for each new
     y_pred = []
     conf_int = []
     for y in ts[start:]:
@@ -100,7 +101,8 @@ def check_int(y, conf_interval, only_lower=False):
         return np.bitwise_and(lower, upper)
 
 # Cell
-def anomaly_holtwinters(ts, seasonal, seasonal_periods):
+def anomaly_holtwinters(ts, seasonal, seasonal_periods,
+                        only_low_values=False, return_fitted_model=False):
     '''
     Predict anomaly with one stepm ahead forecast.
 
@@ -120,17 +122,18 @@ def anomaly_holtwinters(ts, seasonal, seasonal_periods):
 
     # Train model
     model = ExponentialSmoothing(ts, seasonal=seasonal,
-                                 seasonal_periods=seasonal_periods)
-    res = model.fit(use_boxcox=True)
+                                 seasonal_periods=seasonal_periods,
+                                 use_boxcox=True, initialization_method='estimated')
+    res = model.fit()
     y_pred = res.fittedvalues
 
     # Procurando anomalias no residuo
     # Utilizando MAD com sigma 3(99.7% considerando a prob normal)
-    mad = MAD()
-    anomalias = mad.fit_predict(ts - y_pred)
+    mad = MAD(only_low_values=only_low_values)
+    anomalies = mad.fit_predict(ts - y_pred)
 
     # Posprocessamento, desfazendo alterações nos valores da equação
     if min_val <= 0:
         ts = (ts + min_val) - 1
 
-    return ts[anomalias.index]
+    return ts[anomalies.index]
