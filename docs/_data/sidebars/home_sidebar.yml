@@ -11,16 +11,16 @@ entries:
       url: /
     - output: web,pdf
       title: stats
-      url: /stats
+      url: stats.html
     - output: web,pdf
       title: timeseries
-      url: /timeseries
+      url: timeseries.html
     - output: web,pdf
       title: forecast
-      url: /forecast
+      url: forecast.html
     - output: web,pdf
       title: utils
-      url: /utils
+      url: utils.html
     output: web
     title: pyanomaly
   output: web

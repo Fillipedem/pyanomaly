@@ -18,7 +18,8 @@ def plot_anomalies(ts, anomalies, figsize=(20, 5),
     '''
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     # plot ts
-    ts.plot(ax=ax)
+    sns.lineplot(x=ts.index, y=ts, ax=ax)
     # plot anomalies
-    sns.scatterplot(x=anomalies.index, y=anomalies, s=s, color=anomaly_color)
+    sns.scatterplot(x=anomalies.index, y=anomalies, s=s, color=anomaly_color, ax=ax)
+
     return fig, ax

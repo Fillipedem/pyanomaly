@@ -8,12 +8,14 @@ import numpy as np
 # Cell
 class MAD():
     '''
-    classe responsavel por implemetar zscore robusto
-    para detecção de anomalias.
+    Robust z score implementation.
+
+    Robust z score = x − μ1/2 MAD × 1.4826
     '''
     def __init__(self, only_low_values=False):
         self.only_low_values= only_low_values
-
+        self.median = None
+        self.mad = None
 
     def __mad(self, x):
         ''' retorna o MAD(Median Absolute Deviation) para cada valor de **x** '''
@@ -40,7 +42,8 @@ class MAD():
     def decision_function(self, x):
         ''' retorna se os valores de mad para cada valor em **x**'''
         mad = self.__mad(x)
-        return np.abs(mad)
+
+        return mad
 
     def fit_predict(self, x, m=3.0):
         ''' Calcula os parametros e retorno os valores

@@ -4,14 +4,7 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"MAD": "00_stats.ipynb",
          "Tukey": "00_stats.ipynb",
-         "factory_atype": "01_timeseries.ipynb",
-         "moving_average": "01_timeseries.ipynb",
-         "moving_average_score": "01_timeseries.ipynb",
-         "twitter": "01_timeseries.ipynb",
-         "twitter_score": "01_timeseries.ipynb",
-         "anomaly_arima": "02_forecast.ipynb",
-         "check_int": "02_forecast.ipynb",
-         "anomaly_holtwinters": "02_forecast.ipynb",
+         "smad": "01_timeseries.ipynb",
          "plot_anomalies": "03_utils.ipynb"}
 
 modules = ["stats.py",
