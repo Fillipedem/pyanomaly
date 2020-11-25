@@ -12,7 +12,7 @@ Iremos realizar os testes no dataset contendo temperaturas diarias da cidade de 
 
 dataset: https://raw.githubusercontent.com/jbrownlee/Datasets/master/daily-min-temperatures.csv
 
-```
+```python
 # data
 import numpy as np
 import pandas as pd
@@ -24,7 +24,7 @@ df = pd.read_csv('./dados/daily-min-temperatures.csv', parse_dates=['Date'])
 df.set_index('Date', inplace=True)
 ```
 
-```
+```python
 print(df.head(5).T)
 ```
 
@@ -32,7 +32,7 @@ print(df.head(5).T)
     Temp        20.7        17.9        18.8        14.6        15.8
 
 
-```
+```python
 df.plot(figsize=(8, 4));
 ```
 
@@ -42,12 +42,12 @@ df.plot(figsize=(8, 4));
 
 ## Mad
 
-```
+```python
 mad = MAD()
 mad.fit(df['Temp'])
-outliers = mad.fit_predict(df['Temp'])
+anomalies = mad.fit_predict(df['Temp'])
 
-outliers.head()
+anomalies.head()
 ```
 
 
@@ -63,14 +63,8 @@ outliers.head()
 
 
 
-```
-fig, ax = plt.subplots(1, 1, figsize=(12, 6))
-                       
-sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
-sns.scatterplot(x=outliers.index, y=outliers, 
-                color='r', ax=ax)
-
-plt.title('Zscore Robusto', fontsize='large');
+```python
+plot_anomalies(df['Temp'], anomalies, figsize=(15, 4));
 ```
 
 
@@ -79,13 +73,13 @@ plt.title('Zscore Robusto', fontsize='large');
 
 ## Tukey
 
-```
+```python
 tu = Tukey()
 
 tu.fit(df['Temp'])
-outliers = tu.predict(df['Temp'])
+anomalies = tu.predict(df['Temp'])
 
-outliers.head()
+anomalies.head()
 ```
 
 
@@ -101,32 +95,25 @@ outliers.head()
 
 
 
-```
-fig, ax = plt.subplots(1, 1, figsize=(12, 6))
-                       
-sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
-sns.scatterplot(x=outliers.index, y=outliers, 
-                color='r', ax=ax)
-
-plt.title('Tukey Method', fontsize='large');
+```python
+plot_anomalies(df['Temp'], anomalies, figsize=(15, 4));
 ```
 
 
 ![png](docs/images/output_12_0.png)
 
 
-## Twitter - S-MAD
+## S-MAD
 
-```
-outliers = twitter(df['Temp'], period=12)
-outliers.head()
+```python
+anomalies = smad(df['Temp'], period=12)
+anomalies.head()
 ```
 
 
 
 
     Date
-    1981-01-15    25.0
     1981-01-18    24.8
     1981-02-09    25.0
     1982-01-20    25.2
@@ -135,14 +122,8 @@ outliers.head()
 
 
 
-```
-fig, ax = plt.subplots(1, 1, figsize=(12, 6))
-                       
-sns.lineplot(x=df.index, y=df['Temp'], ax=ax)
-sns.scatterplot(x=outliers.index, y=outliers, 
-                color='r', ax=ax)
-
-plt.title('Tukey Method', fontsize='large');
+```python
+plot_anomalies(df['Temp'], anomalies, figsize=(15, 4));
 ```
 
 
